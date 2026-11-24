@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Claudbek Hotel</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;800&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f7f1e3;--ink:#0d2038;--mut:#51637a;--card:#fffdf7;--lapis:#12408a;--teal:#14a89b;--gold:#f2a516;--line:#e2d8bf;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070f22;--ink:#f3eddc;--mut:#a8b6c9;--card:#0e1d3c;--lapis:#6b97f5;--teal:#35d4c4;--gold:#ffbd3a;--line:#223a60}}
+:root[data-theme="dark"]{--bg:#070f22;--ink:#f3eddc;--mut:#a8b6c9;--card:#0e1d3c;--lapis:#6b97f5;--teal:#35d4c4;--gold:#ffbd3a;--line:#223a60}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px;height:auto}
+body{background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:#050d24;z-index:40}
+h1,h2,h3{font-family:Unbounded,Arial Black,system-ui,sans-serif;line-height:1.15}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;display:flex;align-items:center;gap:10px;padding:10px 5vw;background:#050d24;color:#f3eddc}
+.logo{font:800 1.2rem Unbounded,sans-serif;margin-right:auto;display:flex;gap:10px;align-items:center;color:#ffd27a}
+.logo svg{width:34px;height:34px}
+select,button,input{font:inherit;color:inherit}
+select{background:#12275a;color:#fff;border:1px solid #2b4a8c;border-radius:10px;padding:8px}
+.btn{background:var(--gold);color:#1a1200;border:0;border-radius:999px;padding:10px 20px;font-weight:800;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px -6px var(--gold)}
+.btn.alt{background:transparent;border:2px solid currentColor}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:flex-start;padding:8vh 5vw 0;overflow:hidden;color:#f3eddc;background:linear-gradient(#050d24 0%,#10275c 55%,#4a3470 100%)}
+.hero h1{font-size:clamp(1.9rem,6vw,4.4rem);font-weight:800;max-width:14ch;position:relative;z-index:2;text-shadow:0 4px 30px #000a}
+.hero p{max-width:44ch;margin:16px 0 24px;font-size:1.1rem;color:#d6dcee;position:relative;z-index:2}
+.row{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+.scene{position:absolute;left:0;bottom:0;width:100%;height:56%;z-index:1}
+.st{animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.15}}
+.drive{position:absolute;bottom:3.5%;width:150px;z-index:3;animation:go 16s linear infinite}
+.drive.b{width:210px;bottom:5%;animation-duration:24s;animation-delay:-9s}
+@keyframes go{from{left:-25%}to{left:110%}}
+.glow{animation:gl 2.4s ease-in-out infinite}
+@keyframes gl{50%{opacity:.75}}
+section{padding:80px 5vw}
+.head{margin-bottom:34px}
+.head h2{font-size:clamp(1.5rem,4vw,2.5rem);font-weight:800}
+.head p{color:var(--mut);max-width:55ch;margin-top:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:150px 150px 22px 22px;padding:10px 10px 20px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-8px);box-shadow:0 24px 40px -24px var(--lapis)}
+.art{height:190px;border-radius:140px 140px 14px 14px;overflow:hidden}
+.art svg{width:100%;height:100%;display:block}
+.card .in{padding:14px 12px 0}
+.card h3{font-size:1.1rem;margin-bottom:4px}
+.card p{color:var(--mut);font-size:.93rem}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:8px}
+.price{font-weight:800;color:var(--lapis)}
+.tabs{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.tab{border:2px solid var(--line);background:var(--card);border-radius:999px;padding:8px 18px;cursor:pointer;font-weight:600}
+.tab[aria-pressed=true]{background:var(--lapis);border-color:var(--lapis);color:#fff}
+.band{margin:0 5vw;background:linear-gradient(120deg,#12408a,#0e7c86);color:#fff;border-radius:30px;padding:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px;text-align:center}
+.band b{font:800 2.2rem Unbounded,sans-serif;display:block;color:#ffd27a}
+footer{padding:40px 5vw;border-top:1px solid var(--line);color:var(--mut);text-align:center}
+dialog{border:0;border-radius:26px;padding:28px;width:min(92vw,420px);background:var(--card);color:var(--ink);margin:auto}
+dialog::backdrop{background:rgba(5,15,30,.7);backdrop-filter:blur(4px)}
+dialog h2{margin-bottom:12px;font-size:1.4rem}
+label{display:block;font-weight:600;font-size:.9rem;margin:10px 0 4px}
+input{width:100%;padding:11px 14px;border-radius:12px;border:1.5px solid var(--line);background:var(--bg)}
+.err{color:#e0457b;font-size:.88rem;min-height:1.2em;margin-top:8px}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,200%);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:999px;font-weight:600;transition:transform .35s;z-index:50;text-align:center}
+.toast.on{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 40 40"><path d="M20 3 L26 14 L37 20 L26 26 L20 37 L14 26 L3 20 L14 14Z" fill="#f2a516"/><circle cx="20" cy="20" r="7" fill="#14a89b"/></svg>Claudbek</div>
+  <select id="lang" aria-label="Language">
+    <option value="uz">🇺🇿 Oʻzbekcha</option><option value="ru">🇷🇺 Русский</option><option value="en">🇬🇧 English</option><option value="tr">🇹🇷 Türkçe</option><option value="ar">🇸🇦 العربية</option>
+  </select>
+  <button class="btn" id="regBtn" data-i18n="reg">Roʻyxatdan oʻtish</button>
+</header>
+
+<div class="hero">
+  <h1 data-i18n="h1">Claudbek mehmonxonasi</h1>
+  <p data-i18n="hp"></p>
+  <div class="row"><a href="#transport"><button class="btn" data-i18n="cta1"></button></a><a href="#places"><button class="btn alt" data-i18n="cta2"></button></a></div>
+  <svg class="scene" id="scene" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMax slice"></svg>
+  <div class="drive" id="d1"></div><div class="drive b" id="d2"></div>
+</div>
+
+<section id="places"><div class="head"><h2 data-i18n="t1"></h2><p data-i18n="s1"></p></div><div class="grid" id="locs" style="grid-template-columns:minmax(250px,380px)"></div></section>
+<section id="rooms" style="padding-top:0"><div class="head"><h2 data-i18n="t3"></h2><p data-i18n="s3"></p></div><div class="grid" id="rms"></div></section>
+<div class="band">
+  <div><b>1</b><span data-i18n="b1"></span></div><div><b>24/7</b><span data-i18n="b2"></span></div><div><b>12</b><span data-i18n="b3"></span></div><div><b>5</b><span data-i18n="b4"></span></div>
+</div>
+<section id="transport">
+  <div class="head"><h2 data-i18n="t2"></h2><p data-i18n="s2"></p></div>
+  <div class="tabs" id="tabs">
+    <button class="tab" data-f="all" aria-pressed="true" data-i18n="f0"></button>
+    <button class="tab" data-f="car" aria-pressed="false" data-i18n="f1"></button>
+    <button class="tab" data-f="bus" aria-pressed="false" data-i18n="f2"></button>
+  </div>
+  <div class="grid" id="veh"></div>
+</section>
+<footer>© 2026 Claudbek Hotel · Xiva</footer>
+
+<dialog id="dlg">
+  <h2 data-i18n="rt"></h2>
+  <form id="f" novalidate>
+    <label for="n" data-i18n="ln"></label><input id="n" autocomplete="name">
+    <label for="e" data-i18n="le"></label><input id="e" type="email" autocomplete="email">
+    <label for="p" data-i18n="lp"></label><input id="p" type="tel" autocomplete="tel" placeholder="+998 90 123 45 67">
+    <label for="w" data-i18n="lw"></label><input id="w" type="password" autocomplete="new-password">
+    <div class="err" id="err" role="alert"></div>
+    <div class="row" style="margin-top:12px"><button class="btn" type="submit" data-i18n="send"></button><button class="btn alt" type="button" id="close" data-i18n="cancel"></button></div>
+  </form>
+</dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+var T={
+uz:{reg:"Roʻyxatdan oʻtish",h1:"Claudbek mehmonxonasi",hp:"Yotoqdan tortib yoʻlgacha: xona, shaxsiy avtobus va mashina bir joyda. Aeroportda kutib olamiz.",cta1:"Transport band qilish",cta2:"Manzillarni koʻrish",t1:"Lokatsiyalar",s1:"Oʻzbekistonning toʻrt buyuk shahrida mehmonxonalarimiz bor.",b1:"shahar",b2:"qabul",b3:"transport",b4:"til",t2:"Shaxsiy avtobus va mashinalar",s2:"Haydovchi bilan, toza va qulay. Roʻyxatdan oʻtgach band qiling.",f0:"Hammasi",f1:"Mashinalar",f2:"Avtobuslar",rt:"Roʻyxatdan oʻtish",ln:"Ism",le:"Email",lp:"Telefon",lw:"Parol",send:"Yaratish",cancel:"Bekor qilish",book:"Band qilish",seat:"oʻrin",day:"/ kun",need:"Avval roʻyxatdan oʻting",ok:"Xush kelibsiz",booked:"Band qilindi:",bad:"Barcha maydonlarni toʻgʻri toʻldiring (parol kamida 6 belgi).",hi:"Salom",l1:"Poytaxt, zamonaviy markaz va aeroportga 20 daqiqa.",l2:"Registon yonida, tarixiy koʻcha va chiroyli kechalar.",l3:"Eski shahar, choyxonalar va hunarmandlar mahallasi.",l4:"Ichan-Qalʼa devorlari ichidagi tinch hovli."},
+ru:{reg:"Регистрация",h1:"Отель Claudbek",hp:"От кровати до дороги: номер, личный автобус и авто в одном месте. Встретим в аэропорту.",cta1:"Заказать транспорт",cta2:"Смотреть адреса",t1:"Локации",s1:"Наши отели есть в четырёх главных городах Узбекистана.",b1:"города",b2:"ресепшен",b3:"транспорта",b4:"языков",t2:"Личные автобусы и машины",s2:"С водителем, чисто и удобно. Бронируйте после регистрации.",f0:"Все",f1:"Машины",f2:"Автобусы",rt:"Регистрация",ln:"Имя",le:"Эл. почта",lp:"Телефон",lw:"Пароль",send:"Создать",cancel:"Отмена",book:"Забронировать",seat:"мест",day:"/ день",need:"Сначала зарегистрируйтесь",ok:"Добро пожаловать",booked:"Забронировано:",bad:"Заполните все поля верно (пароль от 6 символов).",hi:"Привет",l1:"Столица, современный центр и 20 минут до аэропорта.",l2:"Рядом с Регистаном, историческая улица и вечерние огни.",l3:"Старый город, чайханы и квартал ремесленников.",l4:"Тихий дворик внутри стен Ичан-Калы."},
+en:{reg:"Sign up",h1:"Claudbek Hotel",hp:"From bed to road: room, private bus and car in one place. We meet you at the airport.",cta1:"Book transport",cta2:"See locations",t1:"Locations",s1:"Our hotels are in Uzbekistan’s four great cities.",b1:"cities",b2:"front desk",b3:"vehicles",b4:"languages",t2:"Private buses and cars",s2:"With a driver, clean and comfortable. Sign up, then book.",f0:"All",f1:"Cars",f2:"Buses",rt:"Sign up",ln:"Name",le:"Email",lp:"Phone",lw:"Password",send:"Create account",cancel:"Cancel",book:"Book now",seat:"seats",day:"/ day",need:"Please sign up first",ok:"Welcome",booked:"Booked:",bad:"Fill in every field correctly (password 6+ characters).",hi:"Hi",l1:"The capital, a modern center and 20 minutes from the airport.",l2:"Beside the Registan, a historic street and lit-up evenings.",l3:"Old town, teahouses and the craftsmen’s quarter.",l4:"A quiet courtyard inside the Itchan Kala walls."},
+tr:{reg:"Kayıt ol",h1:"Claudbek Otel",hp:"Yataktan yola: oda, özel otobüs ve araba tek yerde. Sizi havalimanında karşılıyoruz.",cta1:"Transfer ayırt",cta2:"Konumları gör",t1:"Konumlar",s1:"Otellerimiz Özbekistan’ın dört büyük şehrinde.",b1:"şehir",b2:"resepsiyon",b3:"araç",b4:"dil",t2:"Özel otobüs ve arabalar",s2:"Şoförlü, temiz ve rahat. Kayıt olup ayırtın.",f0:"Hepsi",f1:"Arabalar",f2:"Otobüsler",rt:"Kayıt ol",ln:"Ad",le:"E-posta",lp:"Telefon",lw:"Şifre",send:"Oluştur",cancel:"İptal",book:"Ayırt",seat:"koltuk",day:"/ gün",need:"Önce kayıt olun",ok:"Hoş geldiniz",booked:"Ayrıldı:",bad:"Tüm alanları doğru doldurun (şifre en az 6 karakter).",hi:"Merhaba",l1:"Başkent, modern merkez ve havalimanına 20 dakika.",l2:"Registan yanında, tarihi sokak ve ışıklı akşamlar.",l3:"Eski şehir, çayhaneler ve zanaatkâr mahallesi.",l4:"İçan Kale surları içinde sakin bir avlu."},
+ar:{reg:"تسجيل",h1:"فندق كلودبيك",hp:"من السرير إلى الطريق: غرفة وحافلة خاصة وسيارة في مكان واحد. نستقبلك في المطار.",cta1:"احجز المواصلات",cta2:"شاهد المواقع",t1:"المواقع",s1:"فنادقنا في أربع مدن كبرى في أوزبكستان.",b1:"مدن",b2:"استقبال",b3:"مركبة",b4:"لغات",t2:"حافلات وسيارات خاصة",s2:"مع سائق، نظيفة ومريحة. سجّل ثم احجز.",f0:"الكل",f1:"سيارات",f2:"حافلات",rt:"تسجيل",ln:"الاسم",le:"البريد",lp:"الهاتف",lw:"كلمة المرور",send:"إنشاء",cancel:"إلغاء",book:"احجز",seat:"مقاعد",day:"/ يوم",need:"سجّل أولاً",ok:"أهلاً بك",booked:"تم الحجز:",bad:"املأ كل الحقول بشكل صحيح (كلمة المرور 6 أحرف فأكثر).",hi:"مرحباً",l1:"العاصمة ومركز عصري وعشرون دقيقة من المطار.",l2:"بجوار الريغستان وشارع تاريخي وأمسيات مضيئة.",l3:"المدينة القديمة والمقاهي وحي الحرفيين.",l4:"فناء هادئ داخل أسوار إيتشان قلعة."}};
+var X={uz:{t3:"Xonalar",s3:"Har bir xona toza, tinch va qulay.",guest:"mehmon"},ru:{t3:"Номера",s3:"Каждый номер чистый, тихий и уютный.",guest:"гостя"},en:{t3:"Rooms",s3:"Every room is clean, quiet and comfortable.",guest:"guests"},tr:{t3:"Odalar",s3:"Her oda temiz, sessiz ve rahat.",guest:"misafir"},ar:{t3:"الغرف",s3:"كل غرفة نظيفة وهادئة ومريحة.",guest:"ضيوف"}};
+for(var k in X)Object.assign(T[k],X[k]);
+var S1={uz:"Mehmonxonamiz Xivada, Ichan-Qalʼa devorlari yonida.",ru:"Наш отель находится в Хиве, у стен Ичан-Калы.",en:"Our hotel is in Khiva, beside the Itchan Kala walls.",tr:"Otelimiz Hive’de, İçan Kale surlarının yanında.",ar:"فندقنا في خيوة بجوار أسوار إيتشان قلعة."};
+for(var k in S1)T[k].s1=S1[k];
+/* ---- SVG art ---- */
+function dome(x,y,r,c){return '<rect x="'+(x-r*.8)+'" y="'+y+'" width="'+r*1.6+'" height="'+r*.8+'" fill="'+c+'" opacity=".8"/><path d="M'+(x-r)+' '+y+'a'+r+' '+r*1.15+' 0 0 1 '+2*r+' 0Z" fill="'+c+'"/><rect x="'+(x-1)+'" y="'+(y-r*1.15-9)+'" width="2" height="9" fill="#f2a516"/>'}
+function wheel(x){return '<circle cx="'+x+'" cy="62" r="13" fill="#111"/><circle cx="'+x+'" cy="62" r="6" fill="#cfd6e0"/>'}
+function car(c){return '<svg viewBox="0 0 200 80"><ellipse cx="100" cy="75" rx="88" ry="4" fill="#0005"/><path d="M12 62V48Q14 40 30 38L62 34L78 16Q82 12 92 12H128Q136 12 142 18L160 34L180 40Q192 44 192 56V62Z" fill="'+c+'"/><path d="M70 34L82 19H100V34ZM106 34V19H126L140 34Z" fill="#bfe9ff"/><rect x="182" y="46" width="10" height="6" rx="2" fill="#ffe27a"/><rect x="12" y="46" width="8" height="6" rx="2" fill="#ff5a5a"/>'+wheel(52)+wheel(152)+'</svg>'}
+function van(c){return '<svg viewBox="0 0 200 80"><ellipse cx="100" cy="75" rx="90" ry="4" fill="#0005"/><path d="M8 62V28Q8 16 22 16H128L168 36Q192 42 192 56V62Z" fill="'+c+'"/><path d="M24 22H64V38H24ZM70 22H112V38H70ZM118 22L146 36H118Z" fill="#bfe9ff"/><rect x="182" y="46" width="10" height="6" rx="2" fill="#ffe27a"/>'+wheel(50)+wheel(150)+'</svg>'}
+function bus(c,n){var w='';for(var i=0;i<n;i++)w+='<rect x="'+(18+i*(150/n))+'" y="22" width="'+(150/n-6)+'" height="18" rx="3" fill="#bfe9ff"/>';return '<svg viewBox="0 0 200 80"><ellipse cx="100" cy="75" rx="92" ry="4" fill="#0005"/><rect x="6" y="12" width="188" height="50" rx="12" fill="'+c+'"/>'+w+'<rect x="164" y="22" width="22" height="30" rx="3" fill="#8fd3ff"/><rect x="6" y="46" width="188" height="5" fill="#ffd27a"/><rect x="186" y="50" width="8" height="6" fill="#ffe27a"/>'+wheel(44)+wheel(150)+'</svg>'}
+function room(n,c){var s='<rect width="300" height="180" fill="'+['#e8d9b8','#cfe3ef','#2a2350'][n]+'"/><rect y="140" width="300" height="40" fill="#8a5a33"/>';
+ if(n>0)s+='<rect x="14" y="28" width="52" height="76" fill="#7fd0ff"/><path d="M8 24H30V108H8ZM50 24H72V108H50Z" fill="'+c+'" opacity=".85"/>';
+ if(n>1)s+='<line x1="150" y1="0" x2="150" y2="22" stroke="#ffd27a"/><path d="M126 22H174L164 40H136Z" fill="#ffd27a"/><circle cx="150" cy="44" r="40" fill="#ffd27a" opacity=".12"/><rect x="236" y="30" width="48" height="38" fill="#14a89b"/><circle cx="260" cy="49" r="10" fill="#f2a516"/>';
+ return '<svg viewBox="0 0 300 180"><g>'+s+'<rect x="70" y="56" width="160" height="60" rx="8" fill="#5b3a1e"/><rect x="62" y="98" width="176" height="48" rx="8" fill="#fffaf0"/><rect x="62" y="116" width="176" height="30" rx="6" fill="'+c+'"/><rect x="80" y="92" width="52" height="18" rx="9" fill="#f6efe0"/><rect x="168" y="92" width="52" height="18" rx="9" fill="#f6efe0"/><rect x="244" y="112" width="30" height="34" fill="#5b3a1e"/></g></svg>'}
+var CITY=[
+ ['linear-gradient(#2d6fb8,#bfe3ff)','<circle cx="240" cy="40" r="18" fill="#fff3b0"/><rect x="10" y="100" width="42" height="80" fill="#1d4f91"/><rect x="60" y="80" width="36" height="100" fill="#245fa8"/><rect x="200" y="90" width="44" height="90" fill="#1d4f91"/><rect x="252" y="110" width="40" height="70" fill="#245fa8"/><rect x="148" y="34" width="4" height="146" fill="#e8eef7"/><circle cx="150" cy="64" r="12" fill="#e8eef7"/><rect x="140" y="104" width="20" height="76" fill="#cfd9e8"/><rect y="168" width="300" height="12" fill="#2f7d4f"/>'],
+ ['linear-gradient(#f2a516,#ffe2a8)',dome(150,62,36,'#19b6d1')+'<rect x="88" y="84" width="124" height="96" fill="#e9b872"/><path d="M120 180V124a30 30 0 0 1 60 0V180Z" fill="#12408a"/><rect x="34" y="96" width="28" height="84" fill="#d9a35a"/><rect x="238" y="96" width="28" height="84" fill="#d9a35a"/>'+dome(48,70,17,'#14a89b')+dome(252,70,17,'#14a89b')],
+ ['linear-gradient(#e56b2c,#ffd9a0)','<path d="M135 180L142 38H158L165 180Z" fill="#c98b4b"/><rect x="136" y="70" width="28" height="8" fill="#12408a"/><rect x="138" y="100" width="24" height="8" fill="#12408a"/><rect x="137" y="26" width="26" height="14" fill="#c98b4b"/>'+dome(70,126,32,'#14a89b')+dome(238,134,24,'#19b6d1')+'<rect y="164" width="300" height="16" fill="#b27a3e"/>'],
+ ['linear-gradient(#5b3fb5,#f5b97a)','<line x1="0" y1="112" x2="300" y2="112" stroke="#c9965a" stroke-width="12" stroke-dasharray="14 8"/><rect y="118" width="300" height="62" fill="#c9965a"/><rect x="112" y="64" width="76" height="116" fill="#14a89b"/><path d="M112 82H188V92H112ZM112 108H188V118H112ZM112 134H188V144H112Z" fill="#12408a"/><rect x="106" y="54" width="88" height="10" fill="#12408a"/><path d="M130 180V160a20 20 0 0 1 40 0V180Z" fill="#6b3b17"/>']];
+CITY=[CITY[3]];var NAMES=['Xiva'],KEY=['l4'];
+var RM=[['Standard',0,'#12408a',60],['Deluxe',1,'#14a89b',110],['Suite',2,'#c0392b',220]];
+var VEH=[['Chevrolet Malibu',car('#f2f4f8'),'car',4,45],['Toyota Camry',car('#1c2b4a'),'car',4,70],['Kia Carnival',van('#8a1f3d'),'car',7,95],['Mercedes Sprinter',bus('#f2f4f8',5),'bus',18,160],['Yutong Bus',bus('#14a89b',8),'bus',45,280]];
+/* ---- hero scene ---- */
+(function(){var s='',i,r=function(m){return Math.random()*m};
+ for(i=0;i<60;i++)s+='<circle class="st" cx="'+r(1200)+'" cy="'+r(140)+'" r="'+(.6+r(1.4))+'" fill="#fff" style="animation-delay:-'+r(3)+'s"/>';
+ s+='<circle cx="1040" cy="60" r="30" fill="#fff3cf"/><circle cx="1054" cy="52" r="26" fill="#10275c"/>';
+ s+=dome(290,170,60,'#14a89b')+'<rect x="230" y="170" width="120" height="130" fill="#17366b"/>'+dome(910,185,54,'#19b6d1')+'<rect x="856" y="185" width="108" height="115" fill="#17366b"/>';
+ s+='<rect x="470" y="100" width="260" height="200" fill="#1a3c78"/><path d="M530 300V190a70 70 0 0 1 140 0V300Z" fill="#0a1838"/><path d="M548 300V196a52 52 0 0 1 104 0V300Z" fill="#12408a"/><rect x="440" y="90" width="26" height="210" fill="#1f4a8f"/><rect x="734" y="90" width="26" height="210" fill="#1f4a8f"/><rect x="436" y="80" width="34" height="12" fill="#f2a516"/><rect x="730" y="80" width="34" height="12" fill="#f2a516"/>';
+ for(i=0;i<9;i++)s+='<rect x="'+(484+i*28)+'" y="112" width="12" height="40" rx="6" fill="#ffd27a" opacity=".8"/>';
+ s+='<rect x="1000" y="120" width="190" height="180" fill="#1b2f5b"/>';
+ for(var a=0;a<5;a++)for(var b=0;b<5;b++)s+='<rect x="'+(1014+b*34)+'" y="'+(150+a*28)+'" width="18" height="16" fill="'+(Math.random()>.3?'#ffd27a':'#2a3f6d')+'"/>';
+ s+='<g class="glow"><rect x="990" y="92" width="210" height="34" rx="8" fill="#0b1530" stroke="#f2a516" stroke-width="2"/><text x="1095" y="116" text-anchor="middle" font-family="Unbounded,Arial Black,sans-serif" font-weight="800" font-size="19" fill="#ffd27a">CLAUDBEK</text></g>';
+ s+='<rect y="268" width="1200" height="32" fill="#0a1226"/><line x1="0" y1="284" x2="1200" y2="284" stroke="#ffd27a" stroke-width="3" stroke-dasharray="28 22"/>';
+ document.getElementById('scene').innerHTML=s;
+ document.getElementById('d1').innerHTML=car('#f2a516');document.getElementById('d2').innerHTML=bus('#14a89b',7)})();
+var lang="uz",filter="all",user=null,dlg=document.getElementById("dlg");
+try{user=JSON.parse(localStorage.getItem("claudbek-user")||"null");lang=localStorage.getItem("claudbek-lang")||"uz"}catch(e){}
+function t(k){return (T[lang]&&T[lang][k])||T.en[k]||k}
+function toast(m){var x=document.getElementById("toast");x.textContent=m;x.classList.add("on");setTimeout(function(){x.classList.remove("on")},2800)}
+function card(art,name,sub,price,n){return '<div class="card"><div class="art">'+art+'</div><div class="in"><h3>'+name+'</h3><p>'+sub+'</p><div class="meta"><span class="price">'+price+'</span><button class="btn" data-n="'+n+'">'+t("book")+'</button></div></div></div>'}
+function render(){
+  document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-i18n]").forEach(function(el){el.textContent=t(el.dataset.i18n)});
+  if(user)document.getElementById("regBtn").textContent=t("hi")+", "+user.name.split(" ")[0];
+  document.getElementById("locs").innerHTML=CITY.map(function(c,i){return '<div class="card"><div class="art" style="background:'+c[0]+'"><svg viewBox="0 0 300 180" preserveAspectRatio="xMidYMax slice">'+c[1]+'</svg></div><div class="in"><h3>'+NAMES[i]+'</h3><p>'+t(KEY[i])+'</p></div></div>'}).join("");
+  document.getElementById("rms").innerHTML=RM.map(function(r){return card(room(r[1],r[2]),r[0],(r[1]+2)+' '+t("guest"),'$'+r[3]+' '+t("day"),r[0])}).join("");
+  document.getElementById("veh").innerHTML=VEH.filter(function(v){return filter==="all"||v[2]===filter}).map(function(v){return card('<div style="height:100%;display:grid;align-items:end;padding:0 8px 24px;background:linear-gradient(#bfe3ff,#f6e7c4)">'+v[1]+'</div>',v[0],v[3]+' '+t("seat"),'$'+v[4]+' '+t("day"),v[0])}).join("");
+}
+document.getElementById("lang").value=lang;
+document.getElementById("lang").onchange=function(e){lang=e.target.value;try{localStorage.setItem("claudbek-lang",lang)}catch(x){}render()};
+document.getElementById("tabs").onclick=function(e){var b=e.target.closest(".tab");if(!b)return;filter=b.dataset.f;document.querySelectorAll(".tab").forEach(function(x){x.setAttribute("aria-pressed",x===b)});render()};
+function book(e){var b=e.target.closest("button[data-n]");if(!b)return;if(!user){toast(t("need"));dlg.showModal();return}toast("✅ "+t("booked")+" "+b.dataset.n)}
+document.getElementById("veh").onclick=book;document.getElementById("rms").onclick=book;
+document.getElementById("regBtn").onclick=function(){if(user){toast(t("ok")+", "+user.name)}else dlg.showModal()};
+document.getElementById("close").onclick=function(){dlg.close()};
+document.getElementById("f").onsubmit=function(e){e.preventDefault();
+  var n=this.n.value.trim(),em=this.e.value.trim(),p=this.p.value.trim(),w=this.w.value;
+  if(n.length<2||!/^\S+@\S+\.\S+$/.test(em)||p.replace(/\D/g,"").length<9||w.length<6){document.getElementById("err").textContent=t("bad");return}
+  user={name:n,email:em};try{localStorage.setItem("claudbek-user",JSON.stringify(user))}catch(x){}
+  document.getElementById("err").textContent="";dlg.close();render();toast("🎉 "+t("ok")+", "+n)};
+render();
+</script>
+</body>
+</html>
